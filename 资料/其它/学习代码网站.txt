@@ -1,0 +1,55 @@
+一、概要
+这份汇总整理，很程度上参考了GitHub最全前端资源汇总；云集前端教程、开发资源、免费书籍、手册规范、求职面试等等，旨在为前端学习 & 技能提升提供方便。当然，并不期望这成为一个前端武学收藏夹；毕竟，只有自己掌握，才是真正拥有；况且前端发展如火如荼，日新月异。这里会尽量保持探索 & 学习 & 更新。欢迎大家推荐，反馈，谢谢！
+二、优秀的网站
+JS前端开发群月报
+前端开源资源库
+国内老牌技术社区：OSChina、博客园、CSDN、51CTO
+免费的it电子书：http://it-ebooks.info/
+在线学习：http://www.udemy.com/
+代码练习：http://exercism.io/
+代码练习：https://www.codingame.com
+云风（游戏界大牛）: http://blog.codingnow.com/ 
+王垠（不少文章喷到蛮有道理）：http://www.yinwang.org/ 
+冰河-伞哥(Lisp大牛)：http://tianchunbinghe.blog.163.com/ 
+陈皓-左耳朵耗子：http://coolshell.cn/ 
+Jeff Atwood（国外知名博主）: https://blog.codinghorror.com/ 
+阮一峰（黑客与画家译者，Web）：http://www.ruanyifeng.com/ 
+廖雪峰（他的Python、Git教程不少人都看过）：http://www.liaoxuefeng.com/
+道哥的黑板报（安全）：https://zhuanlan.zhihu.com/taosay 国内GitHub上关注度较高的开发者 GitHub篇
+gitbook：https://www.gitbook.io/写书的好东西，当然用来写文档也很不错的
+Travis-ci：开源项目持续集成必备，和GitHub相结合，https://travis-ci.org/
+三、前端技术分类综合
+大前端综合
+Tools
+Vue
+React
+Angular
+Chrome
+Nodejs
+Css3
+Pwa
+Webpack
+Gulp
+Git
+Mongodb
+Markdown
+四、各类前端资源
+综合类
+综合类地址
+前端知识体系 http://www.cnblogs.com/sb19871023/p/3894452.html 
+前端知识结构 https://github.com/JacksonTian/fks 
+Web前端开发大系概览 https://github.com/unruledboy/WebFrontEndStack 
+Web前端开发大系概览-中文版 http://www.cnblogs.com/unruledboy/p/WebFrontEndStack.html 
+Web Front-end Stack v2.2 Web Front-end Stack v2.2 
+免费的编程中文书籍索引 https://github.com/justjavac/free-programming-books-zh_CN 
+前端书籍 https://github.com/dypsilon/frontend-dev-bookmarks 
+前端免费书籍大全 https://github.com/vhf/free-programming-books 
+前端知识体系 http://www.cnblogs.com/sb19871023/p/3894452.html 
+免费的编程中文书籍索引 https://github.com/justjavac/free-programming-books-zh_CN 
+智能社 - 精通JavaScript开发 http://study.163.com/course/introduction/224014.htm 
+重新介绍 JavaScript（JS 教程） https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript 
+麻省理工学院公开课：计算机科学及编程导论 http://v.163.com/special/opencourse/bianchengdaolun.html 
+JavaScript中的this陷阱的最全收集–没有之一 http://segmentfault.com/a/1190000002640298 
+JS函数式编程指南 https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch1.html 
+JavaScript Promise迷你书（中文版） http://liubin.github.io/promises-book 
+腾讯移动Web前

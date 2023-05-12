@@ -1,0 +1,31 @@
+https://zhuanlan.zhihu.com/p/145423630 从零开始，构建电子地图网站----索引目录
+
+https://zhuanlan.zhihu.com/p/144792968 GIS数据源汇总
+
+Postgresql、spatialite都是对GIS数据兼容比较好的数据库，工程化应用可以使用postgresql，spatialite适合轻量级测试。
+Postgresql官网：https://www.postgresql.org/ PostGIS是postgresql最常用的空间拓展插件：http://www.postgis.org/
+GIS数据结构与算法基础
+https://zhuanlan.zhihu.com/p/138593960 QGIS是一个跟arcgis功能差不多的开源GIS软件，且有更好的拓展性。
+https://zhuanlan.zhihu.com/p/145423630 从零开始，构建电子地图网站
+https://zhuanlan.zhihu.com/p/141644867 webGIS实践：geoserver+openlayer+django目录索引
+
+1.OSM open street map数据下载：
+http://download.geofabrik.de/
+可以分国家分地区下载OSM地图的所有矢量数据。
+2.地理信息专业知识服务系统：
+http://kmap.ckcest.cn/
+可以下载地表覆盖数据，和1:100万全国地形图、1:25万全国地形图等。
+3.全国地理信息资源目录服务系统
+http://www.webmap.cn/main.do?method=index
+可以下载不涉密的影像数据。
+4.地理空间数据云
+http://www.gscloud.cn/
+可以下载遥感、雷达、高程模型等数据。
+5.资源环境数据云平台
+http://www.resdc.cn/Default.aspx
+数据目录很全，境界、道路、poi等矢量数据不支持免费下载，可下载样例，但栅格数据一般都支持下载。
+上面五个大部分数据源有重叠，已经够用了。
+5.更多专题遥感影像的获取渠道：
+GIS数据下载资源大全
+https://blog.csdn.net/qq_39826117/article/details/88357721
+大部分都是用于学院分析的遥感影像。

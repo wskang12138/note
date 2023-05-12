@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逆时针+多重圆弧进度条</title>
+    <style scoped>
+        .charts {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="NiArXVItJgKWrDmpXRIfEXoaGkBhVgCc" class="charts"></canvas>
+    </div>
+</body>
+<script src="./u-charts.js"></script>
+<script>
+    var uChartsInstance = {};
+
+    function showCharts(id, data) {
+        const canvas = document.getElementById(id);
+        const ctx = canvas.getContext("2d");
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        uChartsInstance[id] = new uCharts({
+            type: "arcbar",
+            context: ctx,
+            width: canvas.width,
+            height: canvas.height,
+            series: data.series,
+            animation: true,
+            background: "#FFFFFF",
+            color: ["#1890FF", "#91CB74", "#FAC858", "#EE6666", "#73C0DE", "#3CA272", "#FC8452", "#9A60B4", "#ea7ccc"],
+            padding: undefined,
+            title: {
+                name: "指标",
+                fontSize: 35,
+                color: "#1890ff"
+            },
+            subtitle: {
+                name: "默认标题",
+                fontSize: 15,
+                color: "#666666"
+            },
+            extra: {
+                arcbar: {
+                    type: "circle",
+                    width: 12,
+                    backgroundColor: "#E9E9E9",
+                    startAngle: 1.5,
+                    endAngle: 0.25,
+                    gap: 2,
+                    direction: "ccw"
+                }
+            }
+        });
+        canvas.onclick = function (e) {
+            uChartsInstance[e.target.id].touchLegend(getH5Offset(e));
+            uChartsInstance[e.target.id].showToolTip(getH5Offset(e));
+        };
+        canvas.onmousemove = function (e) {
+            uChartsInstance[e.target.id].showToolTip(getH5Offset(e));
+        };
+    }
+
+    function getServerData() {
+        //模拟从服务器获取数据时的延时
+        setTimeout(() => {
+            //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
+            let res = {
+                series: [
+                    {
+                        name: "一班",
+                        data: 0.8
+                    },
+                    {
+                        name: "二班",
+                        data: 0.6
+                    },
+                    {
+                        name: "三班",
+                        data: 0.45
+                    },
+                    {
+                        name: "四班",
+                        data: 0.3
+                    },
+                    {
+                        name: "五班",
+                        data: 0.15
+                    }
+                ]
+            };
+            showCharts('NiArXVItJgKWrDmpXRIfEXoaGkBhVgCc', res);
+        }, 500);
+    }
+
+    getServerData();
+</script>
+
+</html>
