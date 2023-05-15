@@ -1,0 +1,134 @@
+# 认识vite
+
+## 1.认识vite
+
+- 什么是vite呢？
+  - 官方的定位：下一代前端开发与构建工具；
+- 如何定义下一代开发和构建工具呢？
+- 我们知道在实际开发中，我们编写的代码往往是不能被浏览器直接识别的，比如ES6、TypeScript、Vue文件等等；
+- 所以我们必须通过构建工具来对代码进行转换、编译，类似的工具有webpack、rollup、parcel；
+- 但是随着项目越来越大，需要处理的JavaScript呈指数级增长，模块越来越多；
+- 构建工具需要很长的时间才能开启服务器，HMR也需要几秒钟才能在浏览器反应出来；
+- 所以也有这样的说法：天下苦webpack久矣；
+
+## 2.Vite的构造
+
+- 它主要由两部分组成：
+  - **一个开发服务器**，它基于原生ES模块提供了丰富的内建功能，HMR的速度非常快速；
+  - **一套构建指令**，它使用rollup打开我们的代码，并且它是预配置的，可以输出生成环境的优化过的静态资源；
+- 在浏览器支持 ES 模块之前，JavaScript 并没有提供原生机制让开发者以模块化的方式进行开发。
+- 这也正是我们对 “打包” 这个概念熟悉的原因：使用工具抓取、处理并将我们的源码模块串联成可以在浏览器中运行的文件。
+- 时过境迁，我们见证了诸如 webpack、Rollup 和 Parcel 等工具的变迁，它们极大地改善了前端开发者的开发体验。
+- 然而，当我们开始构建越来越大型的应用时，需要处理的 JavaScript 代码量也呈指数级增长。包含数千个模块的大型项目相 当普遍。
+- 基于 JavaScript 开发的工具就会开始遇到性能瓶颈：通常需要很长时间（甚至是几分钟！）才能启动开发服务器，即使使用 模块热替换（HMR），文件修改后的效果也需要几秒钟才能在浏览器中反映出来。
+- Vite 旨在利用生态系统中的新进展解决上述问题：
+- 如果我们不借助于其他工具，直接使用ES Module来开发有什么问题呢？
+  - 首先，我们会发现在使用loadash时，加载了上百个模块的js代码，对于浏览器发送请求是巨大的消耗；
+  - 其次，我们的代码中如果有TypeScript、less、vue等代码时，浏览器并不能直接识别；
+  - 事实上，vite就帮助我们解决了上面的所有问题。
+
+## 3. Vite的安装
+
+- 安装一下vite工具：
+
+  > **npm install vite –g**
+  >
+  > **npm install vite -d**
+
+- 通过vite来启动项目：
+
+  > **npx vite**
+
+##  4.Vite对css的支持
+
+- vite可以直接支持css的处理
+  - 直接导入css即可；
+- vite可以直接支持css预处理器，比如less
+- 直接导入less；
+- 之后安装less编译器；
+
+> **npm install less -D**
+
+- vite直接支持postcss的转换：
+- 只需要安装postcss，并且配置 postcss.config.js 的配置文件即可；
+
+> **npm install postcss postcss-preset-env -D**
+
+ ![img](http://zimo.aizhaiyu.com/assets/img/1.2e12a9b3.png)
+
+##  5.Vite对TypeScript的支持
+
+- vite对TypeScript是原生支持的，它会直接使用ESBuild来完成编译：
+  - **只需要直接导入即可**；
+- 如果我们查看浏览器中的请求，会发现请求的依然是ts的代码：
+  - 这是因为vite中的服务器**Connect**会对我们的请求进行转发；
+  - 获取ts编译后的代码，给浏览器返回，浏览器可以直接进行解析；
+- 注意：**在vite2中，已经不再使用Koa了，而是使用Connect来搭建的服务器**
+
+## 6.Vite对vue的支持
+
+- vite对vue提供第一优先级支持：
+
+  - Vue 3 单文件组件支持：@vitejs/plugin-vue
+  - Vue 3 JSX 支持：@vitejs/plugin-vue-jsx
+  - Vue 2 支持：underfin/vite-plugin-vue2
+
+- 安装支持vue的插件：
+
+  **npm install @vitejs/plugin-vue -D**
+
+- 在vite.config.js中配置插件：
+
+ ![img](http://zimo.aizhaiyu.com/assets/img/2.003b602b.png)
+
+## 7.Vite对react的支持
+
+- **.jsx 和 .tsx 文件同样开箱即用**，它们也是通过 ESBuild来完成的编译：
+
+- 所以我们只需要直接编写react的代码即可；
+
+- **注意：在index.html加载main.js时，我们需要将main.js的后缀，修改为 main.jsx 作为后缀名；**
+
+  ![img](http://zimo.aizhaiyu.com/assets/img/3.e6170146.png)
+
+## 8.Vite打包项目
+
+- 我们可以直接通过vite build来完成对当前项目的打包工具：
+
+  **npx vite build**
+
+  ![img](data:image/png;base64,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)
+
+- 我们可以通过preview的方式，开启一个本地服务来预览打包后的效果：
+
+  **npx vite preview**
+
+## 9.Vite脚手架工具
+
+- 在开发中，我们不可能所有的项目都使用vite从零去搭建，比如一个react项目、Vue项目；
+  - 这个时候vite还给我们提供了对应的脚手架工具；
+- 所以Vite实际上是有两个工具的：
+- vite：相当于是一个构件工具，类似于webpack、rollup；
+- @vitejs/create-app：类似vue-cli、create-react-app；
+- 如果使用脚手架工具呢？
+
+> - npm create vite
+> - yarn create vite
+> - pnpm create vite
+
+## 10.理解ESBuild解析
+
+1. **ESBuild的特点：**
+   - 超快的构建速度，并且不需要缓存；
+   - 支持ES6和CommonJS的模块化；
+   - 支持ES6的Tree Shaking；
+   - 支持Go、JavaScript的API；
+   - 支持TypeScript、JSX等语法编译；
+   - 支持SourceMap；
+   - 支持代码压缩；
+   - 支持扩展其他插件；
+2. **ESBuild的构建速度**
+   - 使用Go语言编写的，可以直接转换成机器代码，而无需经过字节码；
+   - ESBuild可以充分利用CPU的多内核，尽可能让它们饱和运行；
+   - ESBuild的所有内容都是从零开始编写的，而不是使用第三方，所以从一开始就可以考虑各种性能问题；
+   - 等等....
