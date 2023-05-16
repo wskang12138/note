@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      img {
+        height: 100px;
+      }
+      h5 {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 浏览器渲染顺序
+    ========= 主线程 =========
+    0. Minor GC 新生代GC回收
+    1. Parse HTML 解析器解析html，生成dom树  ->  document
+    2. 渲染引擎转换 css文本 为 styleSheets
+    3. Recalculate Style 根据层叠样式表计算每个元素的具体样式（层叠规则与继承规则）  ->  ComputedStyle
+    4. 结合dom树与ComputedStyle创建布局树（遍历节点，只包含可见元素）
+    5. Layout 布局计算Layout（计算每个元素的几何位置）
+    6. Composite Layers 布局树分层，创建分层layer树  -> Layers
+    7. Paint commit到合成线程进行绘制
+    ========= 合成线程 =========
+    8. 合成线程将图层划分为图块（tiles）
+    9. raster栅格化（将图块转换为位图）
+    10. DrawQuad 绘制可见视口（viewport）的图块至内存，然后显示到屏幕
+    11. display 显示
+    html/js/css -> Parse HTML -> Recalculate Style -> Layout -> Composite Layers -> Paint -> Display
+    -->
+
+    <!-- 重排与重绘与合成
+    重排：比如更改元素几何样式属性 height...
+    渲染顺序为 3 -> 11
+    重绘：比如设置元素颜色等
+    渲染顺序为 7 -> 11
+    合成：transform 3D变换
+    渲染顺序为 8 -> 11,不会经历重排与重绘，只用到了合成线程（非主线程）
+    -->
+    <script>
+      const name = document.createElement("h5");
+      name.appendChild(
+        document.createTextNode("这里是js 插入的 text node 文本信息")
+      );
+      document.body.appendChild(name);
+    </script>
+    <h1 style="color: red; position: relative">
+      浏览器渲染测试
+      <span style="transform: translateX(20px); display: inline-block"
+        >===-===</span
+      >
+    </h1>
+    <div
+      style="
+        top: 0;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: rgba(0, 0, 0, 0.2);
+      "
+    ></div>
+    <img id="img1" src="Etag.png" />
+  </body>
+  <script>
+    document.getElementById("img1").style.height = "200px";
+  </script>
+</html>

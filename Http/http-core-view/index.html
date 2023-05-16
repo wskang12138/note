@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    window.onload = () => {
+      fetch("./sw-http1").then(console.log);
+      fetch("./sw-http2").then(console.log);
+      fetch("./sw-http3").then(console.log);
+      fetch("./http1").then(console.log);
+      fetch("./http2").then(console.log);
+      fetch("./http3").then(console.log);
+    };
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("./serviceWorker.js", { scope: "./" })
+        .then((req) => {
+          console.info("sw is online, scope is " + req.scope);
+        })
+        .catch(console.log);
+    }
+  </script>
+</html>

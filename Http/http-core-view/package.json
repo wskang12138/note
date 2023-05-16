@@ -1,0 +1,25 @@
+{
+  "name": "http-core-view",
+  "version": "1.0.0",
+  "description": "测试http、tcp等相关内容，并从中学习一些东西",
+  "private": true,
+  "scripts": {
+    "start:http2": "nodemon ./server/http2/http2.js",
+    "start:http": "nodemon ./server/http/http.js",
+    "start": "yarn start:http2 & yarn start:http"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itkui/http-core-view.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itkui/http-core-view/issues"
+  },
+  "homepage": "https://github.com/itkui/http-core-view#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
